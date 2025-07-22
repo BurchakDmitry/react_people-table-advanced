@@ -23,10 +23,10 @@ const SortBtnComponent: React.FC<Props> = ({ name }) => {
       params.delete('order');
     }
 
-    if (params.has('sort', title) && params.has('order')) {
+    if (params.get('sort') === title && params.has('order')) {
       params.delete('sort');
       params.delete('order');
-    } else if (params.has('sort', title) && !params.has('order')) {
+    } else if (params.get('sort') === title && !params.has('order')) {
       params.set('order', 'desc');
     } else {
       params.set('sort', title);
